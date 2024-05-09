@@ -38,3 +38,14 @@ form.addEventListener("submit", (event) => {
            throw new Error("Invalid input: Division by zero or non-numeric value provided.");
        }
 
+       const resultValue = Math.floor(dividendNumber / divisorNumber);
+       result.innerText = resultValue.toString();
+
+     } catch (error) {
+       console.error("An error occurred:", error);
+       console.error("Call stack:", error.stack);
+
+       // Critical Error Handling
+       result.innerText = "Something critical went wrong. Please reload the page.";
+    }
+});
