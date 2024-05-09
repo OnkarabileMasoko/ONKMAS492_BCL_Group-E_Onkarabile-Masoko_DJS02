@@ -9,7 +9,7 @@ form.addEventListener("submit", (event) => {
 
   // Error handling: check if inputs are empty
   if (!dividend || !divider) {
-      result.classList.add("error-message")
+      //result.classList.add("error-message")
       result.innerText = "Division not performed. Both values are required in inputs. Try again.";
       return;
   }
@@ -25,7 +25,7 @@ form.addEventListener("submit", (event) => {
    try {
        // Force Number conversion
        const dividendNumber = Number(dividend);
-       const divisorNumber = Number(divider);
+       const dividerNumber = Number(divider);
 
        // Check for specific "YOLO" and "+++" input case
        if (dividend === "YOLO" && divider === "+++") {
@@ -34,11 +34,11 @@ form.addEventListener("submit", (event) => {
        }
 
        // Check for other numeric errors
-       if (isNaN(dividendNumber) || isNaN(divisorNumber) || divisorNumber === 0) {
+       if (isNaN(dividendNumber) || isNaN(dividendNumber) || dividerNumber === 0) {
            throw new Error("Invalid input: Division by zero or non-numeric value provided.");
        }
 
-       const resultValue = Math.floor(dividendNumber / divisorNumber);
+       const resultValue = Math.floor(dividendNumber / dividerNumber);
        result.innerText = resultValue.toString();
 
      } catch (error) {
@@ -46,6 +46,6 @@ form.addEventListener("submit", (event) => {
        console.error("Call stack:", error.stack);
 
        // Critical Error Handling
-       result.innerText = "Something critical went wrong. Please reload the page.";
+       result.innerText = "Invalid input: Division by zero or non-numeric value provided.";
     }
 });
