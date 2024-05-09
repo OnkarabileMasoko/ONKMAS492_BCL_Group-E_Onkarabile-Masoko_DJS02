@@ -27,12 +27,7 @@ form.addEventListener("submit", (event) => {
        const dividendNumber = Number(dividend);
        const dividerNumber = Number(divider);
 
-       // Check for specific "YOLO" and "+++" input case
-       if (dividend === "YOLO" && divider === "+++") {
-           result.innerText = "Something critical went wrong. Please reload the page.";
-           return;
-       }
-
+        
        // Check for other numeric errors
        if (isNaN(dividendNumber) || isNaN(dividendNumber) || dividerNumber === 0) {
            throw new Error("Invalid input: Division by zero or non-numeric value provided.");
